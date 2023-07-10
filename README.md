@@ -35,7 +35,6 @@ http://localhost:8080/TestUpdate  <br />
   "pid": "5", <br />
   "pt_nm":"Bob4" <br />
 } <br />
- <br />
 Delete  <br />
 http://localhost:8080/TestDelete <br />
 {"pid":"5"}  <br />
