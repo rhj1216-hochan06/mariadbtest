@@ -1,3 +1,5 @@
+// Test_controller.java
+
 package com.mariadb.test.controller;
 
 import com.mariadb.test.model.Test_model;
@@ -15,35 +17,43 @@ public class Test_controller {
     @Autowired
     private ITest_service Itest_service;
 
-    @PostMapping("/TestSelectTest")
+    @PostMapping("/TestInsert")
     @ResponseBody
-    public Object TestSelectTest(@RequestBody Test_model param) {
-        return this.Itest_service.TestSelectTest(param);
+    public void TestInsert(@RequestBody Test_model param) {
+        this.Itest_service.TestInsert(param);
     }
 
-    @PostMapping("/TestSelectTestAll")
+    @GetMapping("/TestSelect/{pid}")
     @ResponseBody
-    public Object TestSelectTestAll(@RequestBody Test_model param) {
-        System.out.println("\n"+param+"\n");
-        return this.Itest_service.TestSelectTestAll(param);
-    }    
-    @GetMapping ("/TestSelect")
-    @ResponseBody
-    public Object TestSelect() {
-//        System.out.println("\n 여기까지 오는지 확인1 \n");
-        return this.Itest_service.TestSelect();
+    public Test_model TestSelect(@PathVariable("pid") String pid) {
+        return this.Itest_service.TestSelect(pid);
     }
 
+    @PostMapping("/TestUpdate")
+    @ResponseBody
+    public void TestUpdate(@RequestBody Test_model param) {
+        this.Itest_service.TestUpdate(param);
+    }
+
+    @PostMapping("/TestDelete")
+    @ResponseBody
+    public void deleteTest(@RequestBody Test_model param) {
+        this.Itest_service.TestDelete(param.getPid());
+    }
+
+    @PostMapping("/TestSelectSearch")
+    @ResponseBody
+    public List<Test_model> TestSelectSearch(@RequestBody Test_model param) {
+        return this.Itest_service.TestSelectSearch(param);
+    }
+
+    ////아래는 DB 확인용
     @GetMapping("/Time")
     @ResponseBody
     public String Time() {
-        return this.Itest_service.Time();
+        String time =this.Itest_service.Time();
+        System.out.println(time);
+        return time;
     }
-    @GetMapping("/Test")
-    @ResponseBody
-    public List<String> test(Test_model param) {
-        List<String> list = Arrays.asList(param.getPid(), param.getPt_nm());
-        System.out.println(list);
-        return list;
-    }
+
 }

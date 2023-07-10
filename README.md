@@ -19,23 +19,24 @@
     compileOnly 'org.projectlombok:lombok:1.18.20'  // Lombok 종속성 추가<br />
 </h5> <br />
 
-<h5>
-Insert   <br />
-http://localhost:8080/TestInsert  <br />
+<h3>전부 postmapping 방식입니다.<br /></h3>
+<h5>Insert  <br />
+http://localhost:8080/TestInsert <br />
 { <br />
   "pid": "5", <br />
   "pt_nm":"Bob3" <br />
 } <br />
 Read <br />
 http://localhost:8080/TestSelectSearch <br />
-{}  <br />
+{} <br />
 Update <br />
-http://localhost:8080/TestUpdate  <br />
+http://localhost:8080/TestUpdate <br />
 { <br />
   "pid": "5", <br />
   "pt_nm":"Bob4" <br />
 } <br />
-Delete  <br />
+Delete <br />
 http://localhost:8080/TestDelete <br />
 {"pid":"5"}  <br />
 </h5>
+
