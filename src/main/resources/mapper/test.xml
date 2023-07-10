@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mariadb.test.mapper.Test_mapper">
+    <select id="TestSelectTest" resultType="com.mariadb.test.model.Test_model">
+        SELECT pid
+        , pt_nm
+        FROM test.test01
+        WHERE pid = #{pid}
+    </select>
+    <select id="TestSelectTestAll" resultType="com.mariadb.test.model.Test_model">
+        SELECT pid , pt_nm
+        FROM test.test01
+        <where>
+            <if test="pid != null and pid !=''">
+                or pid LIKE CONCAT('%', #{pid}, '%')
+            </if>
+            <if test="pt_nm != null and pt_nm !=''">
+                or pt_nm LIKE CONCAT('%', #{pt_nm}, '%')
+            </if>
+        </where>
+    </select>
+    <select id="TestSelect" resultType="com.mariadb.test.model.Test_model">
+        SELECT pid , pt_nm FROM test.test01
+    </select>
+    <select id="Time" resultType="String">
+        SELECT sysdate() AS currentDateTime FROM dual
+    </select>
+</mapper>
+
