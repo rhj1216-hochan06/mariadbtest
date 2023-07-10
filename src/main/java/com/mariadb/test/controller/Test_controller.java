@@ -25,8 +25,10 @@ public class Test_controller {
 
     @GetMapping("/TestSelect/{pid}")
     @ResponseBody
-    public Test_model TestSelect(@PathVariable("pid") String pid) {
-        return this.Itest_service.TestSelect(pid);
+    public List<Test_model> TestSelect(@PathVariable("pid") String pid) {
+        Test_model param = null;
+        param.setPid(pid);
+        return this.Itest_service.TestSelectSearch(param);
     }
 
     @PostMapping("/TestUpdate")
