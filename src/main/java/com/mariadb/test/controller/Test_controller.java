@@ -1,60 +1,62 @@
-// Test_controller.java
-
 package com.mariadb.test.controller;
 
 import com.mariadb.test.model.Test_model;
 import com.mariadb.test.service.ITest_service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
+import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/test")
 public class Test_controller {
 
+    private final ITest_service Itest_service;
+
     @Autowired
-    private ITest_service Itest_service;
-
-    @PostMapping("/TestInsert")
-    @ResponseBody
-    public void TestInsert(@RequestBody Test_model param) {
-        this.Itest_service.TestInsert(param);
+    public Test_controller(ITest_service Itest_service) {
+        this.Itest_service = Itest_service;
     }
 
-    @GetMapping("/TestSelect/{pid}")
-    @ResponseBody
-    public List<Test_model> TestSelect(@PathVariable("pid") String pid) {
-        Test_model param = null;
+    @PostMapping("/insert")
+    public ResponseEntity<Void> insertTest(@Valid @RequestBody Test_model param) {
+        Itest_service.TestInsert(param);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @GetMapping("/select/{pid}")
+    public ResponseEntity<List<Test_model>> selectTest(@PathVariable("pid") String pid) {
+        Test_model param = new Test_model();
         param.setPid(pid);
-        return this.Itest_service.TestSelectSearch(param);
+        List<Test_model> result = Itest_service.TestSelectSearch(param);
+        return ResponseEntity.ok(result);
     }
 
-    @PostMapping("/TestUpdate")
-    @ResponseBody
-    public void TestUpdate(@RequestBody Test_model param) {
-        this.Itest_service.TestUpdate(param);
+    @PostMapping("/update")
+    public ResponseEntity<Void> updateTest(@Valid @RequestBody Test_model param) {
+        Itest_service.TestUpdate(param);
+        return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/TestDelete")
-    @ResponseBody
-    public void deleteTest(@RequestBody Test_model param) {
-        this.Itest_service.TestDelete(param.getPid());
+    @PostMapping("/delete")
+    public ResponseEntity<Void> deleteTest(@RequestParam("pid") String pid) {
+        Itest_service.TestDelete(pid);
+        return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/TestSelectSearch")
-    @ResponseBody
-    public List<Test_model> TestSelectSearch(@RequestBody Test_model param) {
-        return this.Itest_service.TestSelectSearch(param);
+    @PostMapping("/selectSearch")
+    public ResponseEntity<List<Test_model>> selectSearchTest(@RequestBody Test_model param) {
+        List<Test_model> result = Itest_service.TestSelectSearch(param);
+        return ResponseEntity.ok(result);
     }
 
     ////아래는 DB 확인용
-    @GetMapping("/Time")
-    @ResponseBody
-    public String Time() {
-
-        return this.Itest_service.Time();
+    @GetMapping("/time")
+    public ResponseEntity<String> getTime() {
+        String result = Itest_service.Time();
+        return ResponseEntity.ok(result);
     }
-
 }
