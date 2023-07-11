@@ -53,9 +53,8 @@ public class Test_controller {
     @GetMapping("/Time")
     @ResponseBody
     public String Time() {
-        String time =this.Itest_service.Time();
-        System.out.println(time);
-        return time;
+
+        return this.Itest_service.Time();
     }
 
 }

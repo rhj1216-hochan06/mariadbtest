@@ -18,30 +18,41 @@ public class Test_service implements ITest_service {
 
     @Override
     public void TestInsert(Test_model param) {
+        System.out.println("insert: " + param.getPid() + " : " + param.getPt_nm());
         test_mapper.TestInsert(param);
     }
 
     @Override
     public Test_model TestSelect(String pid) {
-        return test_mapper.TestSelect(pid);
+        Test_model result = test_mapper.TestSelect(pid);
+        System.out.println("insert: " + result.getPid() + " : " + result.getPt_nm());
+        return result;
     }
 
     @Override
     public void TestUpdate(Test_model param) {
+        System.out.println("update: " + param.getPid() + " : " + param.getPt_nm());
         test_mapper.TestUpdate(param);
     }
 
     @Override
     public void TestDelete(String pid) {
+        Test_model result = test_mapper.TestSelect(pid);
+        System.out.println("delete: " + result.getPid() + " : " + result.getPt_nm());
         test_mapper.TestDelete(pid);
     }
 
     @Override
     public List<Test_model> TestSelectSearch(Test_model param) {
-        return test_mapper.TestSelectSearch(param);
+        List<Test_model> result = test_mapper.TestSelectSearch(param);
+        System.out.println(result);
+        return result;
     }
+
     @Override
     public String Time() {
-        return test_mapper.Time();
+        String result = test_mapper.Time();
+        System.out.println(result);
+        return result;
     }
 }
