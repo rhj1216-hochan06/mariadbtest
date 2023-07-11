@@ -6,17 +6,11 @@
 
 
 <h5> 
-    implementation 'org.springframework.boot:spring-boot-starter-web'<br />
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'<br />
-    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'  // MariaDB JDBC 드라이버<br />
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'<br />
-    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'<br />
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'<br />
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'<br />
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'<br />
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'<br />
-    annotationProcessor 'org.projectlombok:lombok:1.18.20'  // Lombok 종속성 추가<br />
-    compileOnly 'org.projectlombok:lombok:1.18.20'  // Lombok 종속성 추가<br />
+application.properties에 db정보와 아이디와 비번이 적혀있습니다. <br />
+mybatis-config.xml 과 mybatis.mapper-locations= mapper/*.xml(매퍼 연결) <br />
+설정 정보확인 하십시오
+mybatis-config.xml운 비어 있습니다.
+build.gradle에 주석 참고
 </h5> <br />
 
 <h3>전부 postmapping 방식입니다.<br /></h3>
