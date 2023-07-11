@@ -42,7 +42,7 @@ public class Test_controller {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<Void> deleteTest(@RequestBody Test_model param) {
+    public ResponseEntity<Void> deleteTest(@Valid @RequestBody Test_model param) {
         String pid = param.getPid();
         Itest_service.TestDelete(pid);
         return ResponseEntity.ok().build();
