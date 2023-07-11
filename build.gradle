@@ -21,12 +21,12 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+    implementation 'javax.validation:validation-api:2.0.1.Final'  // 유효성 검사를 위한 의존성 추가
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'  // Lombok 종속성 추가
     compileOnly 'org.projectlombok:lombok:1.18.20'  // Lombok 종속성 추가
-
 }
 
 test {
