@@ -2,8 +2,12 @@
 
 <h1>실행법</h1>
 <h3> http://localhost:8080/</h3>
-<h3> src/main/java/com/mariadb/test/Main.java 실행</h3>
-<h3>DB: test, 사용자: hj1216, 비번: 1216 </h3>
+
+
+<h5> cmd 에서 front 이후 npm i 명령어 사용 (yarn 명령어 사용시 workbox-webpack-plugin과 node 버전 충돌로 실행 불가) </h5><br />
+<h5>프론트에서 yarn start  </h5>
+<h5> 백은 : src/main/java/com/mariadb/test/Main.java 실행 (프로젝트 삽입시 자동으로gradle 이 수정 됩니다.)</h5>
+<h5>DB: test, 사용자: hj1216, 비번: 1216 </h5>
 
 <h5> 
 application.properties에 db정보와 아이디와 비번이 적혀있습니다. <br />
