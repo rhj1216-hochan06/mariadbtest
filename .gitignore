@@ -4,8 +4,6 @@
 /front/node_modules
 /back/.gradle
 /back/.idead
-/back/build
-/back/gradle
 /.pnp
 .pnp.js
 
