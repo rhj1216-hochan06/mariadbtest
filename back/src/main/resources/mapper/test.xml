@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mariadb.test.mapper.Test_mapper">
+
+    <insert id="TestInsert" parameterType="com.mariadb.test.model.Test_model">
+        INSERT INTO test.test01 (pid, pt_nm)
+        VALUES (#{pid}, #{pt_nm})
+    </insert>
+
+    <select id="TestSelect" parameterType="String" resultType="com.mariadb.test.model.Test_model">
+        SELECT pid, pt_nm
+        FROM test.test01
+        WHERE pid = #{pid}
+    </select>
+
+    <update id="TestUpdate" parameterType="com.mariadb.test.model.Test_model">
+        UPDATE test.test01
+        SET pt_nm = #{pt_nm}
+        WHERE pid = #{pid}
+    </update>
+
+    <delete id="TestDelete" parameterType="String">
+        DELETE FROM test.test01
+        WHERE pid = #{pid}
+    </delete>
+
+    <select id="TestSelectSearch" parameterType="com.mariadb.test.model.Test_model" resultType="com.mariadb.test.model.Test_model">
+        SELECT pid, pt_nm
+        FROM test.test01
+        <where>
+            <if test="pid != null and pid !=''">
+                OR pid LIKE CONCAT('%', #{pid}, '%')
+            </if>
+            <if test="pt_nm != null and pt_nm !=''">
+                OR pt_nm LIKE CONCAT('%', #{pt_nm}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="Time" resultType="String">
+        SELECT sysdate() AS currentDateTime FROM dual
+    </select>
+
+</mapper>
