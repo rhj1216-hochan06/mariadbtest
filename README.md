@@ -3,7 +3,7 @@
 <h1>실행법</h1>
 <h3> http://localhost:8080/</h3>
 <h3> src/main/java/com/mariadb/test/Main.java 실행</h3>
-
+<h3>DB: test, 사용자: hj1216, 비번: 1216 </h3>
 
 <h5> 
 application.properties에 db정보와 아이디와 비번이 적혀있습니다. <br />
