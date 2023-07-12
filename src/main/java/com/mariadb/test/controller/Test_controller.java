@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/test")
 public class Test_controller {
@@ -58,6 +60,7 @@ public class Test_controller {
     @GetMapping("/time")
     public ResponseEntity<String> getTime() {
         String result = Itest_service.Time();
+        System.out.println(result);
         return ResponseEntity.ok(result);
     }
 }
