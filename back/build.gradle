@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'io.freefair.lombok' version '6.4.1'  // Lombok 플러그인 추가
+}
+
+group 'com.mariadb.test'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot 웹 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // Spring Boot 데이터 JPA 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // MariaDB JDBC 드라이버 의존성
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
+    // Jackson Databind 의존성
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
+    // MyBatis Spring Boot Starter 의존성
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+    // 유효성 검사 API 의존성
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    // Spring Boot 테스트 의존성
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // JUnit Jupiter API 의존성
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    // JUnit Jupiter 엔진 의존성
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // Lombok 애노테이션 프로세서 의존성
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    // Lombok 컴파일 타임 의존성
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+}
+
+test {
+    useJUnitPlatform()
+}
