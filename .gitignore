@@ -3,7 +3,7 @@
 # dependencies
 /front/node_modules
 /back/.gradle
-/back/.idead
+/back/.idea
 /.pnp
 .pnp.js
 
