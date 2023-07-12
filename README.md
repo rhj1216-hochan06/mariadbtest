@@ -13,6 +13,9 @@ mybatis-config.xml운 비어 있습니다.
 build.gradle에 주석 참고
 </h5> <br />
 
+<h5> P.S.front와 연결시 cros이슈가 발생해서 컨트롤러에 @CrossOrigin(origins = "http://localhost:3000") 를 추가 하였습니다.</h5> <br />
+
+
 <h3>전부 postmapping 방식입니다.<br /></h3>
 <h5>Insert  <br />
 http://localhost:8080/test/insert <br />
