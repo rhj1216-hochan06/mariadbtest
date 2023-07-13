@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function Delete() {
     const [searchResults, setSearchResults] = useState([]);
@@ -67,6 +68,8 @@ export default function Delete() {
                     </li>
                 ))}
             </ul>
+            <br />
+            <Link to="/">Main 페이지로 이동</Link><br />
         </div>
     );
 }
